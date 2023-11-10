@@ -4,13 +4,21 @@
       <a-col span="12">
         <div class="tomatoCard">
          <a-row>
-           <a-col span="6">
-             <icon-font type="icon-tomato" :size="32"/>
+           <a-col span="10">
+            <div style="margin: 10px">
+              <a-image
+                width="200"
+                height="200"
+                :preview="false"
+                :src="GreenTomatoIcon"
+              >
+              </a-image>
+            </div>
            </a-col>
-           <a-col span="18">
-              <div class="">
+           <a-col span="12">
+              <div style="margin: 10px">
                 <a-form :model="form" @submit="handleSubmit">
-                  <a-form-item field="name" tooltip="请输入登陆号码" label="账号">
+                  <a-form-item field="name" label="账号">
                     <a-input v-model="form.name" size="large" placeholder="请输入登陆号码" />
                   </a-form-item>
                   <a-form-item field="post" label="密码">
@@ -33,8 +41,8 @@
 </template>
 <script setup lang="ts">
 import { ref } from 'vue'
-import { Icon } from '@arco-design/web-vue';;
-const IconFont = Icon.addFromIconFontCn({ src: 'https://at.alicdn.com/t/font_180975_ue66sq60vyd.js' });
+import GreenTomatoIcon from "@/assets/projectLogoGroup/greenTomato.svg"
+// 登陆名称
 const form = ref({
   name: '',
   post: '',
