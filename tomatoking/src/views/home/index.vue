@@ -4,7 +4,7 @@
 
 <template>
   <div>
-    我不是登陆
+哈哈哈哈
   </div>
 </template>
 
