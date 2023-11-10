@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/home/index.vue'
-import { userInfo } from "@/stores";
+import { userInfoData } from "@/stores";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -29,12 +29,11 @@ router.beforeEach((to,from,next)=>{
   // let userInfo=urlOne[1].split('&');
   // let userId =userInfo[0].replaceAll('userid=','');
   // let qyId=userInfo[1].replaceAll('school=','');
-  const userInfoState: any = userInfo();
-  const store = userInfo()
+  const userInfoState: any = userInfoData();
   if (to.path === '/login') {
     next();
   } else {
-    if (Object.keys(userInfoState).length === 0) {
+    if (Object.keys(userInfoState)) {
       console.log(userInfoState);
       next('/login');
     } else {

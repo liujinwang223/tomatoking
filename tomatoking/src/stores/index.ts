@@ -1,7 +1,7 @@
 import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 
-export const userInfo = defineStore("userInfo", {
+export const userInfoData = defineStore("userInfo", {
   persist: {
     enabled: true,//开启数据持久化
     strategies: [
@@ -12,7 +12,7 @@ export const userInfo = defineStore("userInfo", {
     ]
   },
   state: () => ({
-    userInfoData: {}, // 用户个人设置
+    userInfo: {}, // 用户个人设置
     dicInfo: {}, // 字典管理
     menuList: {}, // 菜单其他设置
   }),
@@ -21,13 +21,9 @@ export const userInfo = defineStore("userInfo", {
   },
   actions: {
     setData(data: any) {
-      this.userInfoData = data;
-    },
-    setData(data: any) {
-      this.dicInfo = data;
-    },
-    setData(data: any) {
-      this.menuList = data;
+      this.userInfoData = data.userInfoData;
+      this.dicInfo = data.dicInfo;
+      this.menuList = data.menuList;
     },
   },
 })

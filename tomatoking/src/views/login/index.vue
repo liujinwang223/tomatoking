@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <div>登陆</div>
+  <div>我才是登陆</div>
 </template>
 
 <style scoped>
