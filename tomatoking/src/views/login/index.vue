@@ -7,10 +7,12 @@
             <a-col span="10">
               <div style="margin: 30px; text-align: center">
                 <a-image
-                  :src="GreenTomatoIcon"
-                  title='成熟期'
-                  description='这是一个青涩的番茄，俗称火柿子'
+                  :src="tomatoInfo.icon"
+                  :title="tomatoInfo.title"
+                  :description="tomatoInfo.context"
                   footerPosition="outer"
+                  vertical-align:
+                  top
                   :preview="false"
                 />
               </div>
@@ -24,19 +26,19 @@
                 <a-divider orientation="center">用户登陆</a-divider>
                 <div style="margin: 10px">
                   <a-form :model="form" @submit="handleSubmit">
-                    <a-form-item field="name" label="账号">
+                    <a-form-item field="账号" label="账号" required>
                       <a-input v-model="form.name" size="large" placeholder="请输入登陆号码" />
                     </a-form-item>
-                    <a-form-item field="post" label="密码">
-                      <a-input v-model="form.post" size="large" placeholder="请输入密码" />
+                    <a-form-item field="密码" label="密码" required>
+                      <a-input-password v-model="form.post" size="large" placeholder="请输入密码" />
                     </a-form-item>
                     <a-form-item field="isRead">
                       <a-checkbox v-model="form.isRead">这个点不点无所谓的</a-checkbox>
                     </a-form-item>
                     <a-form-item>
                       <a-button html-type="submit" type="dashed" status="danger"
-                        >点击开始使用</a-button
-                      >
+                        >点击开始使用
+                      </a-button>
                     </a-form-item>
                   </a-form>
                 </div>
@@ -51,6 +53,12 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import GreenTomatoIcon from '@/assets/svgLogos/logo.png'
+
+const tomatoInfo = ref({
+  title: '青涩期',
+  context: '这是一个青涩的番茄，俗称火柿子,当然他现在应该叫青涩的火柿子，因为他刚刚起步',
+  icon: GreenTomatoIcon
+})
 // 登陆名称
 const form = ref({
   name: '',
@@ -58,7 +66,8 @@ const form = ref({
   isRead: false
 })
 const handleSubmit = (data) => {
-  console.log(data)
+  console.log(data);
+// 此处是静态登陆
 }
 </script>
 <style scoped>
