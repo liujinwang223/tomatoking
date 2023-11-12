@@ -21,7 +21,7 @@ export const userInfoData = defineStore("userInfo", {
   },
   actions: {
     setData(data: any) {
-      this.userInfoData = data.userInfoData;
+      this.userInfoData = data;
       this.dicInfo = data.dicInfo;
       this.menuList = data.menuList;
     },

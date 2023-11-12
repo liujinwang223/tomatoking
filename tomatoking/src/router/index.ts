@@ -5,8 +5,9 @@ import { userInfoData } from "@/stores";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
+    { path: '/', redirect: '/home' },
     {
-      path: '/',
+      path: '/home',
       name: 'home',
       component: HomeView
     },
@@ -33,11 +34,9 @@ router.beforeEach((to,from,next)=>{
   if (to.path === '/login') {
     next();
   } else {
-    if (Object.keys(userInfoState)) {
-      console.log(userInfoState);
+    if (Object.keys(userInfoState.userInfo).length === 0) {
       next('/login');
     } else {
-      console.log(userInfoState.value);
       next();
     }
   }
