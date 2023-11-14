@@ -14,12 +14,12 @@ const router = createRouter({
     {
       path: '/about',
       name: 'about',
-      component: () => import('../views/plan/index.vue')
+      component: () => import('@/views/plan/index.vue')
     },
     {
       path: '/login',
       name: 'login',
-      component: () => import('../views/login/index.vue')
+      component: () => import('@/views/login/index.vue')
     }
   ]
 })
@@ -34,6 +34,7 @@ router.beforeEach((to,from,next)=>{
   if (to.path === '/login') {
     next();
   } else {
+    console.log(userInfoState.userInfo);
     if (Object.keys(userInfoState.userInfo).length === 0) {
       next('/login');
     } else {

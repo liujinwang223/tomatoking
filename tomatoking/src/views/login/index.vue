@@ -1,7 +1,7 @@
 <template>
   <div class="backgroundLogin">
     <a-row justify="center" align="center">
-      <a-col span="12">
+      <a-col span="15">
         <div class="tomatoCard">
           <a-row>
             <a-col span="10">
@@ -17,7 +17,7 @@
                 />
               </div>
             </a-col>
-            <a-col span="12">
+            <a-col span="14">
               <div style="margin: 10px">
                 】
                 <a-typography-title :heading="5">
@@ -78,7 +78,9 @@ const handleSubmit = async(data) => {
   let key=userList.value.find(e=>data.values.name== e.no);
   if (key!=undefined){
     const userInfoState: any = userInfoData();
-    await userInfoState.setData(key);
+    await userInfoState.setData();
+    localStorage.setItem('userInfo',key)
+    console.log(userInfoState.value);
     Notification.success({
       title: '登陆成功',
       content: `登陆成功！欢迎您${key.nick}`,

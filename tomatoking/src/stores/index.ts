@@ -13,8 +13,8 @@ export const userInfoData = defineStore("userInfo", {
   },
   state: () => ({
     userInfo: {}, // 用户个人设置
-    dicInfo: {}, // 字典管理
-    menuList: {}, // 菜单其他设置
+    // dicInfo: {}, // 字典管理
+    // menuList: {}, // 菜单其他设置
   }),
   getters: {
 
