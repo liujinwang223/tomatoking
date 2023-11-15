@@ -1,10 +1,10 @@
 <template>
   <div class="backgroundLogin">
     <a-row justify="center" align="center">
-      <a-col span="15">
+      <a-col :span="15">
         <div class="tomatoCard">
           <a-row>
-            <a-col span="10">
+            <a-col :span="10">
               <div style="margin: 30px; text-align: center">
                 <a-image
                   :src="tomatoInfo.icon"
@@ -17,7 +17,7 @@
                 />
               </div>
             </a-col>
-            <a-col span="14">
+            <a-col :span="14">
               <div style="margin: 10px">
                 】
                 <a-typography-title :heading="5">
@@ -68,18 +68,18 @@ const router=useRouter();
 // 用户信息
 const userList=ref(userAllInfo)
 // 登陆名称
-const form = ref({
+const form = ref<any>({
   name: '',
   pwd: '',
+  isRead:'',
 })
-const handleSubmit = async(data) => {
+const handleSubmit = async(data:any) => {
   console.log(data.values.name);
   // 此处是静态登陆
-  let key=userList.value.find(e=>data.values.name== e.no);
+  let key:any=userList.value.find(e=>data.values.name== e.no);
   if (key!=undefined){
     const userInfoState: any = userInfoData();
-    await userInfoState.setData();
-    localStorage.setItem('userInfo',key)
+    await userInfoState.setData(key.value);
     console.log(userInfoState.value);
     Notification.success({
       title: '登陆成功',

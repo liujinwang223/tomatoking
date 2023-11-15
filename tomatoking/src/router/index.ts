@@ -12,9 +12,9 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/about',
-      name: 'about',
-      component: () => import('@/views/plan/index.vue')
+      path: '/master',
+      name: 'master',
+      component: () => import('@/views/master/index.vue')
     },
     {
       path: '/login',
@@ -31,6 +31,7 @@ router.beforeEach((to,from,next)=>{
   // let userId =userInfo[0].replaceAll('userid=','');
   // let qyId=userInfo[1].replaceAll('school=','');
   const userInfoState: any = userInfoData();
+  console.log(to.path);
   if (to.path === '/login') {
     next();
   } else {
